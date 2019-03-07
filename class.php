@@ -3,14 +3,9 @@ namespace MyGreeter;
 class Client{
     private $message;
     public function getGreeting(){
+        $result = ['Good morning','Good afternoon','Good evening'];
         $time = (int)date('H');
-        if($time < 12){
-            $this->message = "Good morning";
-        }else if($time >=12 and $time <=18){
-            $this->message = "Good afternoon";
-        }else{
-            $this->message = "Good evening";
-        }
+        $this->message = $time >12 ? $result[0] : $time<=18 ? $result[1] : $result[2];
         return $this->message;
     }
 }
